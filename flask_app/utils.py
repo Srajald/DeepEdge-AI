@@ -3,9 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 import openai
 import certifi
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
-
+from langchain_core.runnables.history import RunnableWithMessageHistory  # New import
+from requests.exceptions import SSLError
 
 SERPER_API_KEY = os.getenv("SERPER_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -33,7 +34,7 @@ def generate_answer_with_memory(content, query, memory):
     
     try:
         
-        response = conversation_chain.run(prompt)
+        response = conversation_chain.invoke(prompt)
         return response.strip()
     except Exception as e:
         print(f"Error generating answer: {e}")

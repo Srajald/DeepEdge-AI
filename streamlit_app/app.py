@@ -26,7 +26,7 @@ st.markdown(
 )
 
 
-st.sidebar.image("C:/Users/LENOVO/Downloads/llm_search_template/llm_search_template/deepedge_ai_logo.jpg", width=50)
+#st.sidebar.image("C:/Users/LENOVO/Downloads/llm_search_template/llm_search_template/deepedge_ai_logo.jpg", width=50)
 st.sidebar.header("🔧 Configuration")
 st.sidebar.markdown("**Configure search options and explore additional resources.**")
 
